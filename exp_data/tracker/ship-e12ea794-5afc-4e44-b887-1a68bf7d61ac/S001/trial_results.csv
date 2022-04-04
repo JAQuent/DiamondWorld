@@ -1,2 +1,0 @@
-experiment,ppid,session_num,trial_num,block_num,trial_num_in_block,start_time,end_time,raytracker_objectsOnScreenTracker_location_0,first_person_controller_movement_location_0
-tracker,ship-e12ea794-5afc-4e44-b887-1a68bf7d61ac,1,1,1,1,5.78,13.60268,tracker/ship-e12ea794-5afc-4e44-b887-1a68bf7d61ac/S001/trackers/raytracker_objectsOnScreenTracker_T001.csv,tracker/ship-e12ea794-5afc-4e44-b887-1a68bf7d61ac/S001/trackers/first_person_controller_movement_T001.csv

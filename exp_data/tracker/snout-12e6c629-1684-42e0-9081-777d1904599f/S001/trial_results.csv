@@ -1,2 +1,0 @@
-experiment,ppid,session_num,trial_num,block_num,trial_num_in_block,start_time,end_time,raytracker_objectsOnScreenTracker_location_0,first_person_controller_movement_location_0
-tracker,snout-12e6c629-1684-42e0-9081-777d1904599f,1,1,1,1,9.52,16.66718,tracker/snout-12e6c629-1684-42e0-9081-777d1904599f/S001/trackers/raytracker_objectsOnScreenTracker_T001.csv,tracker/snout-12e6c629-1684-42e0-9081-777d1904599f/S001/trackers/first_person_controller_movement_T001.csv

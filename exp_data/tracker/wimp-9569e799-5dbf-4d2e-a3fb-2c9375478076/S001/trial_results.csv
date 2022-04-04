@@ -1,2 +1,0 @@
-experiment,ppid,session_num,trial_num,block_num,trial_num_in_block,start_time,end_time,raytracker_objectsOnScreenTracker_location_0,first_person_controller_movement_location_0,fpstracker_custom_location_0
-tracker,wimp-9569e799-5dbf-4d2e-a3fb-2c9375478076,1,1,1,1,6.98,14.43622,tracker/wimp-9569e799-5dbf-4d2e-a3fb-2c9375478076/S001/trackers/raytracker_objectsOnScreenTracker_T001.csv,tracker/wimp-9569e799-5dbf-4d2e-a3fb-2c9375478076/S001/trackers/first_person_controller_movement_T001.csv,tracker/wimp-9569e799-5dbf-4d2e-a3fb-2c9375478076/S001/trackers/fpstracker_custom_T001.csv

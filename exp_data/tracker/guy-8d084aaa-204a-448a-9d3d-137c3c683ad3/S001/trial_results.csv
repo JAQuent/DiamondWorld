@@ -1,2 +1,0 @@
-experiment,ppid,session_num,trial_num,block_num,trial_num_in_block,start_time,end_time,raytracker_objectsOnScreenTracker_location_0,first_person_controller_movement_location_0,fpstracker_custom_location_0
-tracker,guy-8d084aaa-204a-448a-9d3d-137c3c683ad3,1,1,1,1,4.8,31.82207,tracker/guy-8d084aaa-204a-448a-9d3d-137c3c683ad3/S001/trackers/raytracker_objectsOnScreenTracker_T001.csv,tracker/guy-8d084aaa-204a-448a-9d3d-137c3c683ad3/S001/trackers/first_person_controller_movement_T001.csv,tracker/guy-8d084aaa-204a-448a-9d3d-137c3c683ad3/S001/trackers/fpstracker_custom_T001.csv

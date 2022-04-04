@@ -1,6 +1,0 @@
-{
-    "timeout_period": 300,
-    "targetScore": 10,
-    "numberOfObjects": 100,
-    "numberOfTargets": 20
-}

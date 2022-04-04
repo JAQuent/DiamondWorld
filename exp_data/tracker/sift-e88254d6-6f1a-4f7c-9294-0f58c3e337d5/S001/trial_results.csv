@@ -1,2 +1,0 @@
-experiment,ppid,session_num,trial_num,block_num,trial_num_in_block,start_time,end_time,raytracker_objectsOnScreenTracker_location_0,first_person_controller_movement_location_0
-tracker,sift-e88254d6-6f1a-4f7c-9294-0f58c3e337d5,1,1,1,1,7.02,23.34892,tracker/sift-e88254d6-6f1a-4f7c-9294-0f58c3e337d5/S001/trackers/raytracker_objectsOnScreenTracker_T001.csv,tracker/sift-e88254d6-6f1a-4f7c-9294-0f58c3e337d5/S001/trackers/first_person_controller_movement_T001.csv
