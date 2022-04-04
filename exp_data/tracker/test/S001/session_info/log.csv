@@ -1,0 +1,26 @@
+timestamp,log_type,message,stacktrace
+4.923197,Log,[<b><color=#AD477C>UXF</color></b>] Beginning session.,UnityEngine.Debug:Log (object).  UXF.Utilities:UXFDebugLog (string) (at Assets/UXF/Scripts/Etc/Utilities.cs:13).  UXF.Session:Begin (stringstringintSystem.Collections.Generic.Dictionary`2<string object>UXF.Settings) (at Assets/UXF/Scripts/Session.cs:324).  UXF.UI.UIController/<>c__DisplayClass43_0:<TryBeginSessionFromUISequence>b__0 () (at Assets/UXF/Scripts/UI/UIController.cs:405).  UXF.UI.PopupController:OkPress () (at Assets/UXF/Scripts/UI/PopupController.cs:28).  UnityEngine.EventSystems.EventSystem:Update () (at Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:501).  
+5.72,Log,First Person Controller,UnityEngine.Debug:Log (object).  startTrial:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/startTrial.cs:15).  
+5.72,Log,Start Trial,UnityEngine.Debug:Log (object).  startTrial:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/startTrial.cs:16).  
+5.72,Log,Start countdown,UnityEngine.Debug:Log (object).  countdown:BeginCountdown () (at Assets/Scripts/countdown.cs:24).  UnityEngine.Events.UnityEvent`1<UXF.Trial>:Invoke (UXF.Trial).  UXF.Trial:Begin () (at Assets/UXF/Scripts/Etc/Trial.cs:113).  UXF.Session:BeginNextTrial () (at Assets/UXF/Scripts/Session.cs:405).  startTrial:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/startTrial.cs:17).  
+6.64,Log,Reward: Diamond picked up (0.58 1.12 8.95),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+6.64,Log,Current score: 1,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+7.76,Log,Reward: Diamond picked up (-2.87 1.12 17.86),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+7.76,Log,Current score: 2,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+9.08,Log,Reward: Diamond picked up (-1.86 1.12 33.02),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+9.08,Log,Current score: 3,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+10.06,Log,Reward: Diamond picked up (0.42 1.12 41.36),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+10.06,Log,Current score: 4,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+10.72,Log,Reward: Diamond picked up (-4.72 1.12 37.34),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+10.72,Log,Current score: 5,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+11.34,Log,Reward: Diamond picked up (-3.65 1.12 31.82),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+11.34,Log,Current score: 6,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+12.62,Log,Reward: Diamond picked up (5.20 1.12 41.62),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+12.62,Log,Current score: 7,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+13.84,Log,Reward: Diamond picked up (19.86 1.12 43.84),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+13.84,Log,Current score: 8,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+14.88,Log,Reward: Diamond picked up (27.76 1.12 40.89),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+14.88,Log,Current score: 9,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+15.28,Log,Reward: Diamond picked up (30.56 1.12 39.68),UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:35).  
+15.28,Log,Current score: 10,UnityEngine.Debug:Log (object).  objectScript:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/objectScript.cs:39).  
+15.28131,Log,Target score reached. Trial over.,UnityEngine.Debug:Log (object).  scoreCounter:Update () (at Assets/Scripts/scoreCounter.cs:29).  

@@ -1,0 +1,2 @@
+experiment,ppid,session_num,trial_num,block_num,trial_num_in_block,start_time,end_time,raytracker_objectsOnScreenTracker_location_0,first_person_controller_movement_location_0
+tracker,glow-ef01e2e6-ed95-4290-ab3e-10aec386db0e,1,1,1,1,4.26,10.07457,tracker/glow-ef01e2e6-ed95-4290-ab3e-10aec386db0e/S001/trackers/raytracker_objectsOnScreenTracker_T001.csv,tracker/glow-ef01e2e6-ed95-4290-ab3e-10aec386db0e/S001/trackers/first_person_controller_movement_T001.csv

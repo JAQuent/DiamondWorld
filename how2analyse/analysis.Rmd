@@ -1,0 +1,225 @@
+---
+title: "How to analyse Tracker Data"
+author: "Joern Alexander Quent"
+date: "11/11/2021"
+output: html_document
+---
+
+```{r setup, include = FALSE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Libs
+```{r}
+library(ggplot2)
+library(plyr)
+library(knitr)
+```
+
+# Experiment
+```{r}
+numTrials <- 9
+```
+
+
+# FPS tracker
+```{r}
+# Load first and then loop
+data_FPS       <- read.table("fpstracker_custom_T001.csv", header = TRUE, sep = ",")
+data_FPS$trial <- 1
+data_FPS$time  <- data_FPS$time - min(data_FPS$time)
+
+for(i in 2:numTrials){
+  # Load and prepare
+  temp       <- read.table(paste0("fpstracker_custom_T00", i ,".csv"), header = TRUE, sep = ",")
+  temp$trial <- i
+  temp$time  <- temp$time - min(temp$time)
+  
+  # Bind
+  data_FPS <- rbind(data_FPS, temp)
+}
+
+
+# Make trial factor
+data_FPS$trial <- as.factor(data_FPS$trial)
+
+ggplot(data_FPS, aes(x = time, y = FPS)) + geom_line(aes(color = trial)) + labs(x = "Time in seconds") + 
+  geom_smooth(method = 'loess') + 
+  geom_hline(yintercept = mean(data_FPS$FPS))
+```
+
+# Position tracker
+```{r}
+# Data from First Person Controller
+# Load first and then loop
+data_FPC       <- read.table("player_movement_T001.csv", header = TRUE, sep = ",")
+data_FPC$trial <- 1
+data_FPC$time  <- data_FPC$time - min(data_FPC$time)
+
+for(i in 2:36){
+  # Load and prepare
+  if(i < 10){
+   temp       <- read.table(paste0("player_movement_T00", i ,".csv"), header = TRUE, sep = ",") 
+  } else {
+    temp       <- read.table(paste0("player_movement_T0", i ,".csv"), header = TRUE, sep = ",")
+  }
+  
+  temp$trial <- i
+  temp$time  <- temp$time - min(temp$time)
+  
+  # Bind
+  data_FPC <- rbind(data_FPC, temp)
+}
+```
+
+## Show rotation in polar histogram
+```{r}
+# Function by https://stackoverflow.com/questions/66196451/draw-straight-line-between-any-two-point-when-using-coord-polar-in-ggplot2-r
+geom_segment_straight <- function(...) {
+  layer <- geom_segment(...)
+  new_layer <- ggproto(NULL, layer)
+  old_geom <- new_layer$geom
+  geom <- ggproto(
+    NULL, old_geom,
+    draw_panel = function(data, panel_params, coord, 
+                          arrow = NULL, arrow.fill = NULL,
+                          lineend = "butt", linejoin = "round",
+                          na.rm = FALSE) {
+      data <- ggplot2:::remove_missing(
+        data, na.rm = na.rm, c("x", "y", "xend", "yend", 
+                               "linetype", "size", "shape")
+      )
+      if (ggplot2:::empty(data)) {
+        return(zeroGrob())
+      }
+      coords <- coord$transform(data, panel_params)
+      # xend and yend need to be transformed separately, as coord doesn't understand
+      ends <- transform(data, x = xend, y = yend)
+      ends <- coord$transform(ends, panel_params)
+      
+      arrow.fill <- if (!is.null(arrow.fill)) arrow.fill else coords$colour
+      return(grid::segmentsGrob(
+        coords$x, coords$y, ends$x, ends$y,
+        default.units = "native", gp = grid::gpar(
+          col = alpha(coords$colour, coords$alpha),
+          fill = alpha(arrow.fill, coords$alpha),
+          lwd = coords$size * .pt,
+          lty = coords$linetype,
+          lineend = lineend,
+          linejoin = linejoin
+        ),
+        arrow = arrow
+      ))
+      
+    }
+  )
+  new_layer$geom <- geom
+  return(new_layer)
+}
+```
+
+
+```{r}
+ggplot(data_FPC, aes(x = rot_y )) +
+  geom_histogram(binwidth = 7.5, boundary = -7.5, colour = "black", size = .25) +
+  scale_x_continuous(limits = c(0,360),
+                     breaks = seq(0, 360, by = 60),
+                     minor_breaks = seq(0, 360, by = 15))  +
+  coord_polar() +
+  labs(title = 'Polar histogram of player rotation',
+       y = 'Count',
+       x = '')
+```
+
+
+## Show movement on 2D plane per time
+```{r}
+ggplot(data_FPC, aes(x = pos_x , y = pos_z, colour = time)) + 
+  geom_point() + 
+  coord_cartesian(ylim = c(-90, 90), xlim = c(-90, 90)) +
+  scale_colour_gradient(low = "yellow", high = "red", na.value = NA) +
+  labs(x = "Position on x-axis", y = "Position on z-axis")
+``` 
+
+# Ray tracker
+```{r}
+# Data from First Person Controller
+data_screenRay <- read.table("raytracker_objectsOnScreenTracker_T001.csv", header = TRUE, sep = ",")
+
+# Rest to zero
+data_screenRay$time <- data_screenRay$time - min(data_screenRay$time)
+```
+
+### How often was each object (excluding walls and floor) hit by a ray?
+```{r}
+# Exclude walls and floor
+excluder           <- c("Wall1", "Wall2", "Wall3", "Wall4", "Floor")
+data_screenRay_sub <- data_screenRay[!(data_screenRay$objectDetected %in% excluder), ]
+
+# Make table
+tableRay_hits <- as.data.frame(table(data_screenRay_sub$objectDetected))
+
+# Plot
+ggplot(tableRay_hits, aes(x = Var1, y = Freq)) + 
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(x = 'Game Object', y = 'Ray hit count')
+```
+
+### Which objects (excluding walls and floor) were hit by 10% centre rays?
+```{r}
+# Exclude all rays that were more than 0.1 from 0.5
+data_screenRay_sub2 <- data_screenRay_sub[data_screenRay_sub$x > 0.4 & 
+                                          data_screenRay_sub$x < 0.6 &
+                                          data_screenRay_sub$y > 0.4 & 
+                                          data_screenRay_sub$y < 0.6, ]
+
+# Make table
+tableRay_hits <- as.data.frame(table(data_screenRay_sub2$objectDetected))
+
+# Plot
+ggplot(tableRay_hits, aes(x = Var1, y = Freq)) + 
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(x = 'Game Object', y = 'Ray hit count')
+```
+
+### Where did Cube53 appear on the screen?
+```{r}
+data_screenRay <- na.omit(data_screenRay)
+
+# Only look at Cube53
+data_screenRay_sub3 <- data_screenRay[data_screenRay$objectDetected == "Cube53", ]
+
+ggplot(data_screenRay_sub3, aes(x = x , y = y)) + 
+  geom_count() + 
+  coord_cartesian(ylim = c(0, 1), xlim = c(0, 1)) +
+  labs(x = "Position on x-axis of screen", y = "Position on y-axis x-axis of screen")
+```
+
+## Where did the Floor appear on the screen?
+```{r}
+data_screenRay <- na.omit(data_screenRay)
+
+# Only look at Cube53
+data_screenRay_sub4 <- data_screenRay[data_screenRay$objectDetected == "Floor", ]
+
+ggplot(data_screenRay_sub4, aes(x = x , y = y)) + 
+  geom_count() + 
+  coord_cartesian(ylim = c(0, 1), xlim = c(0, 1)) +
+  labs(x = "Position on x-axis of screen", y = "Position on y-axis x-axis of screen")
+```
+
+
+# How Hz for tracking?
+```{r}
+df_Hz <- ddply(data_FPS, c('trial'), summarise, 
+               trial_duration = max(time) - min(time),
+               samples = length(time))
+
+# Calculate frequency
+df_Hz$Hz <- df_Hz$samples/df_Hz$trial_duration
+
+# Show result per trial
+kable(df_Hz)
+```

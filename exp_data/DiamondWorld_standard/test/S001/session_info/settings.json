@@ -1,0 +1,34 @@
+{
+    "timeoutPeriod": 100,
+    "numTrials": 2,
+    "diamond_x": [
+        1,
+        2,
+        3
+    ],
+    "diamond_z": [
+        1,
+        2,
+        3
+    ],
+    "diamondTimings": [
+        2,
+        2,
+        2
+    ],
+    "icosahedron_x": [
+        -1,
+        -2,
+        -3
+    ],
+    "icosahedron_z": [
+        -1,
+        -2,
+        -3
+    ],
+    "icosahedronTimings": [
+        5,
+        2,
+        3
+    ]
+}
