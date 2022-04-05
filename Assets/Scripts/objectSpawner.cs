@@ -23,6 +23,8 @@ public class objectSpawner : MonoBehaviour{
     private List<float> icosahedron_z;
     private int numberOfDiamonds;
     private int numberOfIcosahedron;
+    private List<GameObject> diamonds = new List<GameObject>();
+    private List<GameObject> icosahedrons = new List<GameObject>();
 
 
     // Update is called once per frame
@@ -39,31 +41,30 @@ public class objectSpawner : MonoBehaviour{
 
         // Diamonds
     	for(int i = 0; i < numberOfDiamonds; i++){
-    		Spawn(diamond, i, diamond_x[i], diamond_z[i]);
+    		diamonds.Add(Spawn(diamond, i, objName1, diamond_x[i], diamond_z[i]));
     	}
 
         // Icosahedron
         for(int i = 0; i < numberOfIcosahedron; i++){
-            Spawn(icosahedron, i, icosahedron_x[i], icosahedron_z[i]);
+            icosahedrons.Add(Spawn(icosahedron, i, objName2, icosahedron_x[i], icosahedron_z[i]));
         }
     }
 
     void destroyAllCubesAtTrialEnd(){
         // Destroy diamonds
     	for(int i = 0; i < numberOfDiamonds; i++){
-    		string obj2delete = objName1 + i;
-    		Destroy(GameObject.Find(obj2delete));
+    		Destroy(diamonds[i]);
     	}
 
         // Destroy icosahedrons
         for(int i = 0; i < numberOfIcosahedron; i++){
             string obj2delete = objName2 + i;
-            Destroy(GameObject.Find(obj2delete));
+            Destroy(icosahedrons[i]);
         }
 
     }
 
-    void Spawn (GameObject myGameObject, int index, float x, float z){
+   GameObject Spawn (GameObject myGameObject, int index, string baseName, float x, float z){
      	GameObject spawnedObj = Instantiate(myGameObject) as GameObject;
         spawnedObj.transform.position = transform.position;
         spawnedObj.name = objName1 + index;
@@ -71,9 +72,11 @@ public class objectSpawner : MonoBehaviour{
 
         // Also unique name the child because the ray tracker won't be useful otherwise. 
         GameObject  firstChildOfSpawnedObj = spawnedObj.transform.GetChild(0).gameObject;
-        firstChildOfSpawnedObj.name = firstChildOfSpawnedObj.name + index;
+        firstChildOfSpawnedObj.name = baseName + index;
 
         // Set index value of objectScript
-        firstChildOfSpawnedObj.gameObject.GetComponent< objectScript >().index = index;
+        firstChildOfSpawnedObj.gameObject.GetComponent<objectScript>().index = index;
+
+        return spawnedObj;
     }
 }
