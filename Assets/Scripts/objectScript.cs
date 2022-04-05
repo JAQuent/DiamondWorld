@@ -4,13 +4,15 @@ using UnityEngine;
 using UXF;
 
 public class objectScript : MonoBehaviour{
+    // Static vars
+    public static int rewardValue = 1;
+    public static int punishmentValue = 2;
+
 	// Public vars
 	public ParticleSystem pickParticle;
 	public AudioClip rewardSound; 
 	public AudioClip punishmentSound; 
 	public bool rewardObject = false;
-	public int rewardValue = 1;
-	public int punishmentValue = 2;
     public int index;
 
     // Private vars
@@ -48,7 +50,7 @@ public class objectScript : MonoBehaviour{
                     rend.enabled = false;
 
                     // Set reacivationcountdown
-                    icosahedronTimings = objectSpawner.icosahedronTimings;
+                    icosahedronTimings = ExperimentController.icosahedronTimings;
                     StartCoroutine(reactivationCountdown(icosahedronTimings[index]));
                 } else {
                     // Log entry
@@ -69,7 +71,7 @@ public class objectScript : MonoBehaviour{
                     rend.enabled = false;
 
                     // Set reacivationcountdown
-                    diamondTimings = objectSpawner.diamondTimings;
+                    diamondTimings = ExperimentController.diamondTimings;
                     StartCoroutine(reactivationCountdown(diamondTimings[index]));
                 } 
             }

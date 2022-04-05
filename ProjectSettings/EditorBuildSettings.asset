@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Welcome Screen.unity
+    guid: 67bf0fae073267347b03ebddf0bd55ac
+  - enabled: 1
+    path: Assets/Scenes/DiamondWorld.unity
+    guid: b0b451490da89ef4fa79c1ef033f84c1
   m_configObjects: {}

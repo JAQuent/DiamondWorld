@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UXF;
 
-public class objectSpawner : MonoBehaviour{
+public class ExperimentController : MonoBehaviour{
     // Static variables
     public static List<float> diamondTimings;
     public static List<float> icosahedronTimings;
@@ -30,6 +30,13 @@ public class objectSpawner : MonoBehaviour{
     // Update is called once per frame
     void spawnOnTrialBegin(){
         // Get information from session after it started
+        // Parse general information from .json
+        ThreeButtonMovement.forwardSpeed = session.settings.GetFloat("forwardSpeed");
+        ThreeButtonMovement.rotationSpeed = session.settings.GetFloat("rotationSpeed");
+        objectScript.rewardValue = session.settings.GetInt("rewardValue");
+        objectScript.punishmentValue = session.settings.GetInt("punishmentValue");
+
+        // Object locations and timing
         diamond_x = session.settings.GetFloatList("diamond_x");
         diamond_z = session.settings.GetFloatList("diamond_z");
         diamondTimings = session.settings.GetFloatList("diamondTimings");
@@ -39,6 +46,7 @@ public class objectSpawner : MonoBehaviour{
         icosahedronTimings = session.settings.GetFloatList("icosahedronTimings");
         numberOfIcosahedron = icosahedron_x.Count;
 
+        // Spawn objects
         // Diamonds
     	for(int i = 0; i < numberOfDiamonds; i++){
     		diamonds.Add(Spawn(diamond, i, objName1, diamond_x[i], diamond_z[i]));
@@ -50,7 +58,7 @@ public class objectSpawner : MonoBehaviour{
         }
     }
 
-    void destroyAllCubesAtTrialEnd(){
+    public void destroyAllCubesAtTrialEnd(){
         // Destroy diamonds
     	for(int i = 0; i < numberOfDiamonds; i++){
     		Destroy(diamonds[i]);
@@ -61,6 +69,11 @@ public class objectSpawner : MonoBehaviour{
             string obj2delete = objName2 + i;
             Destroy(icosahedrons[i]);
         }
+    }
+
+    public void SaveDataAtTrialEnd(){
+        // Save data
+        session.CurrentTrial.result["score"] = 2;
 
     }
 
@@ -80,3 +93,7 @@ public class objectSpawner : MonoBehaviour{
         return spawnedObj;
     }
 }
+
+// hide cursor
+// add flag or layer to ray cast
+// add fixation marker
