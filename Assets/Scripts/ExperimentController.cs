@@ -97,3 +97,6 @@ public class ExperimentController : MonoBehaviour{
 // hide cursor
 // add flag or layer to ray cast
 // add fixation marker
+// end application
+// trial version
+// remove shadows
