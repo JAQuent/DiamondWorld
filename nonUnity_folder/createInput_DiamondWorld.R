@@ -31,11 +31,11 @@ z_max <- 45
 
 # Number of objects
 numDiamonds <- 20
-numIcoshedrons <- 50
+numIcosahedrons <- 50
 
 # Reactivation range
-time_min <- 5
-time_max <- 10
+time_min <- 10
+time_max <- 30
 
 # /* 
 # ----------------------------- Draw random locations ---------------------------
@@ -44,16 +44,16 @@ diamond_x <- round(runif(numDiamonds, min = x_min, max = x_max), 1)
 diamond_z <- round(runif(numDiamonds, min = z_min, max = z_max), 1)
 diamondTimings <- round(runif(numDiamonds, min = time_min, max = time_max), 1)
 
-icosahedron_x <- round(runif(numIcoshedrons, min = x_min, max = x_max), 1)
-icosahedron_z <- round(runif(numIcoshedrons, min = z_min, max = z_max), 1)
-icosahedronTimings <- round(runif(numIcoshedrons, min = time_min, max = time_max), 1)
+icosahedron_x <- round(runif(numIcosahedrons, min = x_min, max = x_max), 1)
+icosahedron_z <- round(runif(numIcosahedrons, min = z_min, max = z_max), 1)
+icosahedronTimings <- round(runif(numIcosahedrons, min = time_min, max = time_max), 1)
 
 
 # /* 
 # ----------------------------- Visualisation ---------------------------
 # */
 # Add to one dataframe
-df <- data.frame(object = c(rep('diamond', numDiamonds), rep('icosahedron', numIcoshedrons)),
+df <- data.frame(object = c(rep('diamond', numDiamonds), rep('icosahedron', numIcosahedrons)),
                  x = c(diamond_x, icosahedron_x),
                  z = c(diamond_z, icosahedron_z),
                  timer = c(diamondTimings, icosahedronTimings))

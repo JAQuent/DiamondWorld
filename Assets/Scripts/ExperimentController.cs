@@ -15,6 +15,7 @@ public class ExperimentController : MonoBehaviour{
 	public string objName1 = "diamond";
     public string objName2 = "icosahedron";
     public Session session;
+    public GameObject endScreen;
 
     // Private vars
     private List<float> diamond_x;
@@ -26,8 +27,25 @@ public class ExperimentController : MonoBehaviour{
     private List<GameObject> diamonds = new List<GameObject>();
     private List<GameObject> icosahedrons = new List<GameObject>();
 
+    void Start(){
+    	// Start with no movement
+        ThreeButtonMovement.movementAllowed = false;
+    }
 
-    // Update is called once per frame
+    // Update method to quit application
+    void Update(){
+        // Stop Experiment
+        if(Input.GetKey(KeyCode.Escape)){
+            // Log entry
+            Debug.Log("The end");
+
+            // Close application
+            Application.Quit();
+        }
+    }
+
+
+    // Method to be run at the beginning of trial to get settings and spawn objects.
     void spawnOnTrialBegin(){
         // Get information from session after it started
         // Parse general information from .json
@@ -58,6 +76,8 @@ public class ExperimentController : MonoBehaviour{
         }
     }
 
+
+    // Method to be run at the end of the trial to destroy all objects
     public void destroyAllCubesAtTrialEnd(){
         // Destroy diamonds
     	for(int i = 0; i < numberOfDiamonds; i++){
@@ -71,16 +91,38 @@ public class ExperimentController : MonoBehaviour{
         }
     }
 
+    // Method to be run at the end of trial to save data
     public void SaveDataAtTrialEnd(){
         // Save data
-        session.CurrentTrial.result["score"] = 2;
+        session.CurrentTrial.result["score"] = scoreCounter.score;
 
     }
 
-   GameObject Spawn (GameObject myGameObject, int index, string baseName, float x, float z){
+    // Method to be run at the beginning of session to allow movement
+    public void AllowMovement(){
+    	// Allow movement
+        ThreeButtonMovement.movementAllowed = true;
+    }
+
+    // Method to be run at the end of the session
+    public void EndOfSession(){
+        // Show screeen
+        endScreen.SetActive(true);
+
+        // End movement
+        ThreeButtonMovement.movementAllowed = false;
+    }
+
+    // Method to hide the cursor at the beginning of the session
+    public void HideCursor(){
+        Cursor.visible = false;
+    }
+
+    // Method to spawn the objects
+    GameObject Spawn (GameObject myGameObject, int index, string baseName, float x, float z){
      	GameObject spawnedObj = Instantiate(myGameObject) as GameObject;
         spawnedObj.transform.position = transform.position;
-        spawnedObj.name = objName1 + index;
+        spawnedObj.name = baseName + index;
 		spawnedObj.transform.position = new Vector3(x, yOfCube, z);
 
         // Also unique name the child because the ray tracker won't be useful otherwise. 
@@ -93,10 +135,3 @@ public class ExperimentController : MonoBehaviour{
         return spawnedObj;
     }
 }
-
-// hide cursor
-// add flag or layer to ray cast
-// add fixation marker
-// end application
-// trial version
-// remove shadows

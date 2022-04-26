@@ -14,16 +14,24 @@ public class objectScript : MonoBehaviour{
 	public AudioClip punishmentSound; 
 	public bool rewardObject = false;
     public int index;
+    public GameObject light;
 
     // Private vars
     private List<float> diamondTimings;
     private List<float> icosahedronTimings;
     private bool activated = true;
     private Renderer rend;
+    private Collider m_Collider;
 
     void Start(){
         // Get renderer of the child that contains the renderer
         rend = gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>();
+
+        // Set point light 2 true
+        light.SetActive(true);
+
+        //Fetch the GameObject's Collider (make sure it has a Collider component)
+        m_Collider = GetComponent<Collider>();
     }
 
     /// OnTriggerEnter is called  if FPC enters it check whether it's a death cube
@@ -48,6 +56,8 @@ public class objectScript : MonoBehaviour{
                     // Set inactive
                     activated = false;
                     rend.enabled = false;
+                    light.SetActive(false);
+                    m_Collider.enabled = false;
 
                     // Set reacivationcountdown
                     icosahedronTimings = ExperimentController.icosahedronTimings;
@@ -69,6 +79,8 @@ public class objectScript : MonoBehaviour{
                     // Set inactive
                     activated = false;
                     rend.enabled = false;
+                    light.SetActive(false);
+                    m_Collider.enabled = false;
 
                     // Set reacivationcountdown
                     diamondTimings = ExperimentController.diamondTimings;
@@ -86,6 +98,8 @@ public class objectScript : MonoBehaviour{
         // Reactivate
         activated = true;
         rend.enabled = true;
+        light.SetActive(true);
+        m_Collider.enabled = true;
 
         // Log entry
         Debug.Log("Object reactivated " + gameObject.transform.position);

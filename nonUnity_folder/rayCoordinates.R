@@ -17,3 +17,10 @@ y <- x
 rayCoordinates <- expand.grid(x, y)
 
 write.table(rayCoordinates, 'rayCoordinates.txt', quote = FALSE, sep = '\t', row.names = FALSE, col.names = FALSE)
+
+
+# Lib
+library(ggplot2)
+
+
+ggplot(rayCoordinates, aes(x = Var1, y = Var2)) + geom_point()
