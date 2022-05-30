@@ -15,14 +15,15 @@ MonoBehaviour:
   version: 5
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HoloMaterialDiamond
   m_Shader: {fileID: -6465566751694194690, guid: 11d70f63a16f474408dc1709e5203735, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -50,12 +51,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 3
+    - _FresnelPower: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScrollSpeed: 0.1
     m_Colors:
-    - _BaseColour: {r: 1, g: 0.26931435, b: 0.050943315, a: 0}
-    - _FresnelColour: {r: 512, g: 4.0156865, b: 0, a: 1}
+    - _BaseColour: {r: 1, g: 0.17598853, b: 0.04150939, a: 0}
+    - _FresnelColour: {r: 766.9961, g: 8.031373, b: 0, a: 1}
     - _HologramTextureTiling: {r: 1, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []

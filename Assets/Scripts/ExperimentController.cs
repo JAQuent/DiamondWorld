@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UXF;
+using UnityEngine.UI;
 
 public class ExperimentController : MonoBehaviour{
     // Static variables
@@ -26,6 +27,10 @@ public class ExperimentController : MonoBehaviour{
     private int numberOfIcosahedron;
     private List<GameObject> diamonds = new List<GameObject>();
     private List<GameObject> icosahedrons = new List<GameObject>();
+    private bool startEndCountDown; // If true it starts the end countdown
+    private float endCountDown = 60; // End countdown if zero, application closes. 
+    private Text endScreenText; // Text component of the end screen
+    private string endMessage; // String for the end message that is used.
 
     void Start(){
     	// Start with no movement
@@ -37,10 +42,21 @@ public class ExperimentController : MonoBehaviour{
         // Stop Experiment
         if(Input.GetKey(KeyCode.Escape)){
             // Log entry
-            Debug.Log("The end");
+            Debug.Log("Session end time " + System.DateTime.Now);
 
             // Close application
-            Application.Quit();
+            TheEnd();
+        }
+
+        // End countdown
+        if(startEndCountDown){
+            endCountDown -= Time.deltaTime;
+            endScreenText.text = endMessage + Mathf.Round(endCountDown);
+
+            // Quit if end count down over
+            if(endCountDown <= 0){
+                Application.Quit();
+            }
         }
     }
 
@@ -104,14 +120,20 @@ public class ExperimentController : MonoBehaviour{
         ThreeButtonMovement.movementAllowed = true;
     }
 
-    // Method to be run at the end of the session
-    public void EndOfSession(){
-        // Show screeen
+    /// <summary>
+    /// Function to end application. This needs to be attached to the On Session End Event of the UXF Rig.
+    /// </summary>
+    public void TheEnd(){
+        // Set end screen active
         endScreen.SetActive(true);
 
-        // End movement
-        ThreeButtonMovement.movementAllowed = false;
+        // Start end countdown
+        startEndCountDown = true;
+
+        // Get text
+        endScreenText = endScreen.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>();
     }
+
 
     // Method to hide the cursor at the beginning of the session
     public void HideCursor(){
@@ -133,5 +155,35 @@ public class ExperimentController : MonoBehaviour{
         firstChildOfSpawnedObj.gameObject.GetComponent<objectScript>().index = index;
 
         return spawnedObj;
+    }
+
+    // Set target framerate at the beginning of the session & also print system time
+    public void sessionStart(){
+        // Set frame rate
+        Application.targetFrameRate = session.settings.GetInt("targetFrameRate");
+
+        // Print system time
+        Debug.Log("Session start time " + System.DateTime.Now);
+
+        // Get endCountDown & countdown message
+        endCountDown = session.settings.GetFloat("endCountDown");
+        endMessage = session.settings.GetString("endMessage");
+
+        // Which platform is used
+        whichPlatform();
+    }
+
+
+    /// <summary>
+    /// Method to log which platform is used. # More info here https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
+    /// </summary>
+    void whichPlatform(){
+        #if UNITY_EDITOR
+            Debug.Log("Platform used is UNITY_EDITOR");
+        #elif UNITY_STANDALONE_OSX
+            Debug.Log("Platform used is UNITY_STANDALONE_OSX");
+        #elif UNITY_STANDALONE_WIN
+            Debug.Log("Platform used is UNITY_STANDALONE_WIN");
+        #endif
     }
 }

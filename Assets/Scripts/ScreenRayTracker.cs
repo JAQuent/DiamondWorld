@@ -5,8 +5,28 @@ using UXF;
 using System.Linq;
 
 /// <summary>
-/// Attach this component to any gameobject (e.g. an empty one) and assign it in the trackedObjects field in an ExperimentSession to record
-/// if ray casted from camera is hitting anything. NOTE: Update Type must be set to MANUAL. 
+// Attach this component to any game object (e.g. an empty one) and assign it to the correct field. It is called Tracked Objects. 
+// You can find this on the _Session (Script)_ attached to the _[UXF_Rig]_ game object under _Data collection_ tab. Just drag & drop 
+// your ray casting game object on to the field. Furthermore, you have to add three methods of the _Screen Ray Tracker (Script)_ to  
+// events that can be found undder the _Events_ tab on the same _Session (Script)_. In particular, you need to add _GetRayCoordinates_ 
+// to _On Session Beginn_. For _On Trail Begin_, you have add _StartRecording_ and _StopRecording_ has logically be added to _On Trial End_. 
+// This controls the recording, which is important as we will have choose the manual recording mode for this tracker. 
+//
+/// In the inspector under _Necessary Input_ you have to add the camera from which you want to cast the rays and the _[UXF_Rig]_. 
+/// Also, you need to make sure that the _Update Type_ below is set to _Manual_ .
+/// The last thing that has to be provided are the ray coordinates, which are added to the .json file that is read in at the beginning 
+/// of the sessiono of your experiment. This .json file can for instance look like this
+///
+/// {
+/// "ray_x": [0.5],
+/// "ray_y": [0.5]
+/// }
+/// if you only want one ray in the middle. The only important thing is that you have to provide input in form of _ray_x_ and _ray_y_. 
+// Then you're good to go.
+/// _Optional Input_ include the ability to activate _Debug mode_, which will print each hit to the console and visualise your rays, 
+/// _Distance_ (i.e. how far the ray is cast), which by the default is set to infinity but can be changed to a different value and 
+// importantly you can also provide _Layer Mask Names_ if you want to organise your objects on those and only some of them should be 
+// detectabe by the rays. 
 /// </summary>
 public class ScreenRayTracker : Tracker {
 	// Public vars
@@ -53,11 +73,15 @@ public class ScreenRayTracker : Tracker {
     }
 
     /// <summary>
-    /// Gets coordinates for the rays in screen space from .json file
+    /// Gets coordinates for the rays in screen space from .json file and prints screen resolution
     /// </summary>
     public void GetRayCoordinates(){
+        // Coordinates
         x = session.settings.GetFloatList("ray_x");
         y = session.settings.GetFloatList("ray_y");
+
+        // Screen resolution
+        Debug.Log(Screen.currentResolution);
     }
 
     /// <summary>

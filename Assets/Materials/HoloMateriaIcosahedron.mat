@@ -15,14 +15,15 @@ MonoBehaviour:
   version: 5
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HoloMateriaIcosahedron
   m_Shader: {fileID: -6465566751694194690, guid: 11d70f63a16f474408dc1709e5203735, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -56,6 +57,6 @@ Material:
     - _ScrollSpeed: 0.1
     m_Colors:
     - _BaseColour: {r: 0.22762327, g: 1, b: 0.05098039, a: 0}
-    - _FresnelColour: {r: 104.254555, g: 472.14154, b: 0, a: 0.8666667}
+    - _FresnelColour: {r: 172.67451, g: 766.9961, b: 0, a: 0.8666667}
     - _HologramTextureTiling: {r: 1, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []

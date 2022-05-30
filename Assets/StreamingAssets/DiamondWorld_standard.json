@@ -1,7 +1,10 @@
 {
- "timeoutPeriod": 300.0,
+ "timeoutPeriod": 60.0,
  "forwardSpeed": 15.0,
  "rotationSpeed": 50.0,
+ "targetFrameRate": 60,
+ "endCountDown" : 60,
+ "endMessage": "Thank you for completing the task.\n\nPlease wait briefly before you close the application.\n\nSeconds remaining: ",
  "rewardValue": 1,
  "punishmentValue": 2,
  "numTrials": 1,

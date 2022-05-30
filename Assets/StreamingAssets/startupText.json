@@ -1,0 +1,13 @@
+{
+    "chromeBar": "Diamond World (version 1.2)",
+    "instructionsPanelContent1": "Welcome to the xth part of this study",
+    "instructionsPanelContent2": "Dear participants,\nIn this part of the experiment you have to collect as many red diamonds as possible by running into them. At the same time you have to avoid the green icosahedron shapes because you will loose points if you collect them. To gain as many points you have <color=red>five minutes</color>. \nAs explained previously, you move forward by pressing J. You press H & K to turn left/right. Do not forget that you have to end the current action (e.g. moving forward) before you can do something else (e.g. turning left) by pressing the same key again.\nThe experiment and your timer starts as soon as you walk over the blue platform.",
+    "expSettingsprofile": "Experiment settings profile",
+    "localPathElement": "Local data save directory",
+    "localPathElement_placeHolder": "Press browse button to select...",
+    "participantID": "Participant ID",
+    "participantID_placeholder": "Enter text...",
+    "sessionNumber": "Session number",
+    "termsAndConditions": "Please tick if you understand the instructions and agree for your data to be collected and used for research purposes.<color=red>*</color>",
+    "beginButton": "Begin session"
+}
