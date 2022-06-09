@@ -5,18 +5,18 @@ using UnityEngine;
 // Explanation how to use this script. 
 
 public class ThreeButtonMovement : MonoBehaviour{
-	// Static variables
+	// Static variables 
 	public static bool movementAllowed = true;
 	public static float forwardSpeed = 15.0f;
 	public static float rotationSpeed = 50.0f;
 	public static bool reset = false;
-	// This can be accessed by other scripts to disable movement functionality
-	// Or changed the speed etc.
+    public static KeyCode leftTurn = KeyCode.A;
+    public static KeyCode forwardKey = KeyCode.W;
+    public static KeyCode rightTurn = KeyCode.D;
+	// Thse can be accessed by other scripts to disable movement functionality
+	// For instance it can be used to change the speed etc.
 
 	// Public vars
-	public KeyCode forwardKey = KeyCode.W;
-	public KeyCode leftTurn = KeyCode.A;
-	public KeyCode rightTurn = KeyCode.D;
 	public bool actionNeedToBeEnded = true; // With enabled player cannot directly switch between
 	// actions. Instead they have to stop the action again. Here Input.GetKeyDown is used. 
 	// If false, players can move forward and rotate at the same time as Input.GetKey is used. 

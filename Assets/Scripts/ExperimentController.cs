@@ -9,6 +9,9 @@ public class ExperimentController : MonoBehaviour{
     public static List<float> diamondTimings;
     public static List<float> icosahedronTimings;
 
+    // HTTPpost script
+    public UXF.HTTPPost HTTPPostScript;
+
 	// Public vars
 	public GameObject diamond;
     public GameObject icosahedron;
@@ -17,6 +20,9 @@ public class ExperimentController : MonoBehaviour{
     public string objName2 = "icosahedron";
     public Session session;
     public GameObject endScreen;
+    public GameObject fixationMarker;
+    public GameObject countdownText;
+    public GameObject scoreText;
 
     // Private vars
     private List<float> diamond_x;
@@ -31,6 +37,7 @@ public class ExperimentController : MonoBehaviour{
     private float endCountDown = 60; // End countdown if zero, application closes. 
     private Text endScreenText; // Text component of the end screen
     private string endMessage; // String for the end message that is used.
+    private bool useHTTPPost = false; // Is HTTPPost to be used? If so it needs input from the .json
 
     void Start(){
     	// Start with no movement
@@ -124,6 +131,27 @@ public class ExperimentController : MonoBehaviour{
     /// Function to end application. This needs to be attached to the On Session End Event of the UXF Rig.
     /// </summary>
     public void TheEnd(){
+        // If useHTTPPost not used than quit immediately
+        if(!useHTTPPost){
+            Debug.Log("Application closed now.");
+            Application.Quit();
+        }
+
+        // End session/trial if necessary
+        if(session.InTrial){
+            // End the trial
+            session.EndCurrentTrial();  
+        }
+        if(!session.isEnding){
+            // End the session
+            session.End();
+        }
+
+        // Set other canvases inactive
+        fixationMarker.SetActive(false);
+        countdownText.SetActive(false);
+        scoreText.SetActive(false);
+
         // Set end screen active
         endScreen.SetActive(true);
 
@@ -169,8 +197,46 @@ public class ExperimentController : MonoBehaviour{
         endCountDown = session.settings.GetFloat("endCountDown");
         endMessage = session.settings.GetString("endMessage");
 
+        // Check if the keys have to be changed
+        bool changeKeys = session.settings.GetBool("changeKeys");
+        if(changeKeys){
+            changeKeyboardKeys();
+        }
+
+        // Check if HTTPPost needs to be set.
+        useHTTPPost = session.settings.GetBool("useHTTPPost");
+        if(useHTTPPost){
+            configureHTTPPost();
+        }
+
         // Which platform is used
         whichPlatform();
+    }
+
+    /// <summary>
+    /// Method to change keys 
+    /// </summary>  
+    public void changeKeyboardKeys(){
+        // Get List of string from .json
+        List<string> newKeys = session.settings.GetStringList("keys");
+        ThreeButtonMovement.leftTurn = (KeyCode) System.Enum.Parse(typeof(KeyCode), newKeys[0]);
+        ThreeButtonMovement.forwardKey = (KeyCode) System.Enum.Parse(typeof(KeyCode), newKeys[1]);
+        ThreeButtonMovement.rightTurn = (KeyCode) System.Enum.Parse(typeof(KeyCode), newKeys[2]);
+    }
+
+    /// <summary>
+    /// Method to configure the HTTPPost script. Needs public UXF.HTTPPost HTTPPostScript;
+    /// </summary>
+    public void configureHTTPPost(){
+        string url = session.settings.GetString("url");
+        string username = session.settings.GetString("username");
+        string password = session.settings.GetString("password");
+
+        // Set the variables
+        HTTPPostScript.url = url;
+        HTTPPostScript.username = username;
+        HTTPPostScript.password = password;
+        HTTPPostScript.active = true;
     }
 
 
