@@ -1512,8 +1512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7ED3\u675F\n\u8BF7\u6309Esc\u952E\u9000\u51FA\u3002\n\nThe End\nPlease
-    Press Escape.\n"
+  m_Text: 
 --- !u!222 &1850673530
 CanvasRenderer:
   m_ObjectHideFlags: 0
