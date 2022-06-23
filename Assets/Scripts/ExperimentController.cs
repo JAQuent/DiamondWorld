@@ -188,6 +188,7 @@ public class ExperimentController : MonoBehaviour{
     // Set target framerate at the beginning of the session & also print system time
     public void sessionStart(){
         // Set frame rate
+        QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = session.settings.GetInt("targetFrameRate");
 
         // Print system time
