@@ -1,13 +1,13 @@
 {
-    "chromeBar": "Diamond World (version 1.2)",
-    "instructionsPanelContent1": "Welcome to the xth part of this study",
-    "instructionsPanelContent2": "Dear participants,\nIn this part of the experiment you have to collect as many red diamonds as possible by running into them. At the same time you have to avoid the green icosahedron shapes because you will loose points if you collect them. To gain as many points you have <color=red>five minutes</color>. \nAs explained previously, you move forward by pressing J. You press H & K to turn left/right. Do not forget that you have to end the current action (e.g. moving forward) before you can do something else (e.g. turning left) by pressing the same key again.\nThe experiment and your timer starts as soon as you walk over the blue platform.",
-    "expSettingsprofile": "Experiment settings profile",
-    "localPathElement": "Local data save directory",
-    "localPathElement_placeHolder": "Press browse button to select...",
-    "participantID": "Participant ID",
-    "participantID_placeholder": "Enter text...",
+    "chromeBar": "Diamond World (version 1.4.1)",
+    "instructionsPanelContent1": "欢迎参加本研究的第三部分",
+    "instructionsPanelContent2": "亲爱的参与者，\n在这部分实验中，您必须通过撞到<color=red>红色</color>钻石来尽可能多地收集它们以获取积分。同时必须避免碰到<color=green>绿色</color>的二十面体，否则您将失去积分。当您获取一个物体时，会有声音提示。请获得尽可能多的分数，您有 <color=red>五分钟</color>。 \n如前所述，按 “J” 向前移动。按“ H” 或“K”进行向左转或向右转。请不要忘记您必须先通过再次按下相同的键来结束当前动作（例如在向前移动时按“J”来停止前进动作），然后才能执行其他操作（例如按“H”向左转）。\n一旦您走过蓝色平台，实验和计时器就会开始。",
+    "expSettingsprofile": "实验配置参数",
+    "localPathElement": "本地数据存储路径",
+    "localPathElement_placeHolder": "请按”浏览“键进行选择。。。",
+    "participantID": "参与者编号（ID)",
+    "participantID_placeholder": "输入文本。。。",
     "sessionNumber": "Session number",
-    "termsAndConditions": "Please tick if you understand the instructions and agree for your data to be collected and used for research purposes.<color=red>*</color>",
-    "beginButton": "Begin session"
+    "termsAndConditions": "如果您已理解实验指示并同意收集您的数据将其用于研究目的，请打勾。<color=red>*</color>",
+    "beginButton": "开始阶段"
 }
