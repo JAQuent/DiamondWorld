@@ -8,6 +8,7 @@ public class ExperimentController : MonoBehaviour{
     // Static variables
     public static List<float> diamondTimings;
     public static List<float> icosahedronTimings;
+    public static bool warningShow = false;
 
     // HTTPpost script
     public UXF.HTTPPost HTTPPostScript;
@@ -23,6 +24,8 @@ public class ExperimentController : MonoBehaviour{
     public GameObject fixationMarker;
     public GameObject countdownText;
     public GameObject scoreText;
+    public GameObject warningIcon;
+    public float iconTime;
 
     // Private vars
     private List<float> diamond_x;
@@ -64,6 +67,13 @@ public class ExperimentController : MonoBehaviour{
             if(endCountDown <= 0){
                 Application.Quit();
             }
+        }
+
+        // Check if warning should be displayed
+        if(warningShow){
+            Debug.Log("Warning showed!");
+            StartCoroutine(warning());
+            warningShow = false;
         }
     }
 
@@ -252,5 +262,16 @@ public class ExperimentController : MonoBehaviour{
         #elif UNITY_STANDALONE_WIN
             Debug.Log("Platform used is UNITY_STANDALONE_WIN");
         #endif
+    }
+
+    /// <summary>
+    /// Display warning icon for a short time
+    /// </summary>
+    IEnumerator warning(){
+        warningIcon.SetActive(true);
+
+        yield return new WaitForSeconds(iconTime);
+
+        warningIcon.SetActive(false);
     }
 }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UXF;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class objectScript : MonoBehaviour{
     // Static vars
@@ -34,6 +36,8 @@ public class objectScript : MonoBehaviour{
         m_Collider = GetComponent<Collider>();
     }
 
+
+
     /// OnTriggerEnter is called  if FPC enters it check whether it's a death cube
     void OnTriggerEnter(Collider other){
         // Only run if activated
@@ -42,6 +46,10 @@ public class objectScript : MonoBehaviour{
                 if(!rewardObject){
                     // Log entry
                     Debug.Log("Punishment: Icosahedron picked up " + gameObject.transform.position);
+
+                    // Punishment vignette & warning
+                    VignietteController.vignetteEffectStart = true;
+                    ExperimentController.warningShow = true;
 
                     // Change score
                     scoreCounter.score  = scoreCounter.score - punishmentValue;

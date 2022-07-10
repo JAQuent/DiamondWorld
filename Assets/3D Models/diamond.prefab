@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickParticle: {fileID: 8442590905795512887}
-  rewardSound: {fileID: 8300000, guid: 7bc47bb8ac951a54b96a38720c43954f, type: 3}
-  punishmentSound: {fileID: 8300000, guid: d63fa3601d1b6924ca8f77853d84b41f, type: 3}
+  rewardSound: {fileID: 8300000, guid: 8322c5dd149aa1649a397606e675d9d5, type: 3}
+  punishmentSound: {fileID: 8300000, guid: f72984bc357256741ada014feeb89344, type: 3}
   rewardObject: 1
   index: 0
   light: {fileID: 6445625539452511508}
