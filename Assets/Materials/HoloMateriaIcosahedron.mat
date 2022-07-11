@@ -56,7 +56,7 @@ Material:
     - _QueueOffset: 0
     - _ScrollSpeed: 0.1
     m_Colors:
-    - _BaseColour: {r: 0.22762327, g: 1, b: 0.05098039, a: 0}
-    - _FresnelColour: {r: 172.67451, g: 766.9961, b: 0, a: 0.8666667}
+    - _BaseColour: {r: 1, g: 1, b: 1, a: 0}
+    - _FresnelColour: {r: 357.81622, g: 357.81622, b: 357.81622, a: 0.8666667}
     - _HologramTextureTiling: {r: 1, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
