@@ -1037,20 +1037,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
-    m_MaxSize: 50
+    m_MaxSize: 60
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You have to collect as many diamons as possible. You get 1 point for each
-    dimaond. \n\nBecare ful! Do not collect the white objects because you will loose
-    2 points each time you do this."
+  m_Text: "\u4F60\u9700\u8981\u6536\u96C6\u5C3D\u53EF\u80FD\u591A\u7684\u94BB\u77F3\u3002\u6BCF\u4E2A\u94BB\u77F3\u5C06\u4F7F\u4F60
+    \u83B7\u5F971\u70B9\u79EF\u5206\u3002\n\n<b>\u6CE8\u610F\uFF01</b>\u8BF7\u4E0D\u8981\u6536\u96C6\u767D\u8272\u7269\u4F53\uFF0C\u8FD9\u6837\u505A\u6BCF\u6B21\u5C06\u4F7F\u4F60\u5931\u53BB2\u70B9\u79EF\u5206\u3002"
 --- !u!222 &1782928688
 CanvasRenderer:
   m_ObjectHideFlags: 0
