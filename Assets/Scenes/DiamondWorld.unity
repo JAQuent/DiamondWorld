@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e04e5c39c5a7274fae859d458eedaef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  failSound: {fileID: 8300000, guid: ab56f16b52bce144d83f96172e264d2f, type: 3}
+  failSound: {fileID: 8300000, guid: 704635b6b874e7c4696dbeac2cb296c8, type: 3}
   session: {fileID: 568562370}
   timeoutPeriod: 60
   countdownText: {fileID: 760131742}

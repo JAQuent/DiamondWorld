@@ -12,7 +12,6 @@ public class startTrial : MonoBehaviour{
     /// OnTriggerEnter is called when the Collider 'other' enters the trigger.
     void OnTriggerEnter(Collider other){
     	if (other.name != "Plane" & trialEnded){
-    		Debug.Log(other.name);
     		Debug.Log("Start Trial");
         	session.BeginNextTrial();
             AudioSource.PlayClipAtPoint(startSound, gameObject.transform.position, 1.0f);

@@ -1,5 +1,5 @@
 {
- "timeoutPeriod": 300.0,
+ "timeoutPeriod": 10.0,
  "forwardSpeed": 15.0,
  "rotationSpeed": 50.0,
  "targetFrameRate": 60,
