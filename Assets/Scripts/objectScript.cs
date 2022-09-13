@@ -16,7 +16,6 @@ public class objectScript : MonoBehaviour{
 	public AudioClip punishmentSound; 
 	public bool rewardObject = false;
     public int index;
-    public GameObject light;
 
     // Private vars
     private List<float> diamondTimings;
@@ -28,9 +27,6 @@ public class objectScript : MonoBehaviour{
     void Start(){
         // Get renderer of the child that contains the renderer
         rend = gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>();
-
-        // Set point light 2 true
-        light.SetActive(true);
 
         //Fetch the GameObject's Collider (make sure it has a Collider component)
         m_Collider = GetComponent<Collider>();
@@ -64,7 +60,6 @@ public class objectScript : MonoBehaviour{
                     // Set inactive
                     activated = false;
                     rend.enabled = false;
-                    light.SetActive(false);
                     m_Collider.enabled = false;
 
                     // Set reacivationcountdown
@@ -87,7 +82,6 @@ public class objectScript : MonoBehaviour{
                     // Set inactive
                     activated = false;
                     rend.enabled = false;
-                    light.SetActive(false);
                     m_Collider.enabled = false;
 
                     // Set reacivationcountdown
@@ -106,7 +100,6 @@ public class objectScript : MonoBehaviour{
         // Reactivate
         activated = true;
         rend.enabled = true;
-        light.SetActive(true);
         m_Collider.enabled = true;
 
         // Log entry
