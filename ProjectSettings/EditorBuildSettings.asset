@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Welcome Screen.unity
     guid: 67bf0fae073267347b03ebddf0bd55ac
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DiamondWorld.unity
     guid: b0b451490da89ef4fa79c1ef033f84c1
+  - enabled: 0
+    path: Assets/Scenes/webGL_test.unity
+    guid: a6f8d503b37feeb43b8e8e7c3f06e0b0
   m_configObjects: {}
