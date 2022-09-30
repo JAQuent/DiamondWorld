@@ -2,6 +2,7 @@
  "timeoutPeriod": 300.0,
  "forwardSpeed": 15.0,
  "rotationSpeed": 50.0,
+ "showFPS": true,
  "targetFrameRate": 9999,
  "endCountDown" : 60,
  "endMessage": "谢谢你完成本任务！\n\n请在您关闭应用前稍等片刻。\n\n剩余秒数： ",

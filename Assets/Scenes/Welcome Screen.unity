@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &82015792
 RectTransform:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 520, y: -8}
+  m_AnchoredPosition: {x: 520, y: 16}
   m_SizeDelta: {x: 160, y: 116.3762}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82015793
@@ -1005,7 +1005,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u4F60\u9700\u8981\u6536\u96C6\u5C3D\u53EF\u80FD\u591A\u7684\u94BB\u77F3\u3002\u6BCF\u4E2A\u94BB\u77F3\u5C06\u4F7F\u4F60
-    \u83B7\u5F971\u70B9\u79EF\u5206\u3002\n\n<b>\u6CE8\u610F\uFF01</b>\u8BF7\u4E0D\u8981\u6536\u96C6\u767D\u8272\u7269\u4F53\uFF0C\u8FD9\u6837\u505A\u6BCF\u6B21\u5C06\u4F7F\u4F60\u5931\u53BB2\u70B9\u79EF\u5206\u3002"
+    \u83B7\u5F971\u70B9\u79EF\u5206\u3002\n\n<b>\u6CE8\u610F\uFF01</b>\u8BF7\u4E0D\u8981\u6536\u96C6\u84DD\u8272\u7269\u4F53\uFF0C\u8FD9\u6837\u505A\u6BCF\u6B21\u5C06\u4F7F\u4F60\u5931\u53BB2\u70B9\u79EF\u5206\u3002"
 --- !u!222 &1782928688
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1478,7 +1478,7 @@ GameObject:
   - component: {fileID: 2020994359}
   - component: {fileID: 2020994358}
   m_Layer: 0
-  m_Name: LoadNextScene
+  m_Name: WelcomeScreenController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1496,6 +1496,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0e81194ccd4d340af506c31207c490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileName: welcome.json
+  label1Text: {fileID: 1967470175}
+  label2Text: {fileID: 82015793}
+  instructions: {fileID: 1782928687}
+  button: {fileID: 657923341}
+  title: {fileID: 1847455930}
 --- !u!4 &2020994359
 Transform:
   m_ObjectHideFlags: 0

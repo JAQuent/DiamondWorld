@@ -41,10 +41,15 @@ public class ExperimentController : MonoBehaviour{
     private Text endScreenText; // Text component of the end screen
     private string endMessage; // String for the end message that is used.
     private bool useHTTPPost = false; // Is HTTPPost to be used? If so it needs input from the .json
+    private GameObject FPS_Counter; // Game object for FPS counter
+    private bool foundFPS_Counter = false; // Has the FPS counter been found?
 
     void Start(){
     	// Start with no movement
         ThreeButtonMovement.movementAllowed = false;
+
+		// Deactivate FPS by default
+        activateFPS_Counter(false);
     }
 
     // Update method to quit application
@@ -200,6 +205,8 @@ public class ExperimentController : MonoBehaviour{
         // Set frame rate
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = session.settings.GetInt("targetFrameRate");
+        // Version of the task
+        Debug.Log("Application Version : " + Application.version);
 
         // Print system time
         Debug.Log("Session start time " + System.DateTime.Now);
@@ -222,6 +229,24 @@ public class ExperimentController : MonoBehaviour{
 
         // Which platform is used
         whichPlatform();
+
+        // Activate FPS counter if configured so.
+        activateFPS_Counter(session.settings.GetBool("showFPS"));
+    }
+
+
+    /// <summary>
+    /// Method to activate FPS counter
+    /// </summary>
+    void activateFPS_Counter(bool activateFPS_Recording){
+        // Find the game object
+        if(!foundFPS_Counter){
+            FPS_Counter = GameObject.Find("FPS_Counter");
+            foundFPS_Counter = true; // Found the game object
+        }
+
+        // Set in/active
+        FPS_Counter.SetActive(activateFPS_Recording);
     }
 
     /// <summary>
