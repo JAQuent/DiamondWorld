@@ -1,5 +1,5 @@
 {
-    "chromeBar": "Diamond World (version 1.4.1)",
+    "chromeBar": "Diamond World",
     "instructionsPanelContent1": "欢迎参加本研究的第三部分",
     "instructionsPanelContent2": "亲爱的参与者，\n在这部分实验中，您必须通过撞到<color=red>红色</color>钻石来尽可能多地收集它们以获取积分。同时必须避免碰到<color=green>绿色</color>的二十面体，否则您将失去积分。当您获取一个物体时，会有声音提示。请获得尽可能多的分数，您有 <color=red>五分钟</color>。 \n如前所述，按 “J” 向前移动。按“ H” 或“K”进行向左转或向右转。请不要忘记您必须先通过再次按下相同的键来结束当前动作（例如在向前移动时按“J”来停止前进动作），然后才能执行其他操作（例如按“H”向左转）。\n一旦您走过蓝色平台，实验和计时器就会开始。",
     "expSettingsprofile": "实验配置参数",
