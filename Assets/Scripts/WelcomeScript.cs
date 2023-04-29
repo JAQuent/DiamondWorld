@@ -13,6 +13,7 @@ public class WelcomeScript : MonoBehaviour{
     public Text instructions;
     public Text button;
     public Text title;
+    public Text version;
 
     // You need to set-up all variables that you want to get from the .json file.
     // The variable names have to correspond to the input names in that file. 
@@ -39,6 +40,9 @@ public class WelcomeScript : MonoBehaviour{
 		instructions.text = JSONData.instructionText;
 		button.text = JSONData.buttonLabel;
         title.text = JSONData.title;
+
+        // Change version
+        version.text = "Version " + Application.version;
     }
 
 

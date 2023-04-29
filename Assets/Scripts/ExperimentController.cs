@@ -205,11 +205,12 @@ public class ExperimentController : MonoBehaviour{
         // Set frame rate
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = session.settings.GetInt("targetFrameRate");
+        // Log entry
+        Debug.Log("Session start time " + System.DateTime.Now);
+        // Screen resolution
+        Debug.Log(Screen.currentResolution);
         // Version of the task
         Debug.Log("Application Version : " + Application.version);
-
-        // Print system time
-        Debug.Log("Session start time " + System.DateTime.Now);
 
         // Get endCountDown & countdown message
         endCountDown = session.settings.GetFloat("endCountDown");
@@ -230,8 +231,19 @@ public class ExperimentController : MonoBehaviour{
         // Which platform is used
         whichPlatform();
 
+        // Detect which input devices are presented
+        detectInputDevices();
+
         // Activate FPS counter if configured so.
         activateFPS_Counter(session.settings.GetBool("showFPS"));
+
+        ////////////////////////////////////////////////////////////////////////////////////
+        // Newly added features that if not specified in the .json file get a default value.
+        // Check whether actionNeedToBeEnded should be controlled
+        string tempKey = "actionNeedToBeEnded";
+        if(containsThisKeyInSessionSettings(tempKey)){
+            ThreeButtonMovement.actionNeedToBeEnded = session.settings.GetBool(tempKey); 
+        } 
     }
 
 
@@ -298,5 +310,33 @@ public class ExperimentController : MonoBehaviour{
         yield return new WaitForSeconds(iconTime);
 
         warningIcon.SetActive(false);
+    }
+
+    /// <summary>
+    /// Check which input devices are available
+    /// </summary>
+    void detectInputDevices(){
+        //Debug.Log("Mouse connected to computer: " + Input.mousePresent);
+        Debug.Log("Computer supports touchscreen: " + Input.touchSupported);
+        Debug.Log("Device type: " + SystemInfo.deviceType);
+    }
+
+    /// <summary>
+    /// Method to check if a certain key can be found in the settings heirarchy
+    /// </summary>  
+    bool containsThisKeyInSessionSettings(string targetKey){
+        // Initialise result
+        bool contained = false;
+
+        // Loop through all keys in settings
+        foreach(var key in session.settings.Keys){
+            if(key == targetKey){
+                contained = true;
+                break;
+            }
+        }
+
+        // Retun the value
+        return(contained);
     }
 }

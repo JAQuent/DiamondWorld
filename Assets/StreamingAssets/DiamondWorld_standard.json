@@ -22,5 +22,6 @@
  "username": "bla",
  "password": "bla",
  "changeKeys": true,
- "keys" : ["H", "J", "K"]
+ "keys" : ["H", "J", "K"],
+ "actionNeedToBeEnded": false
 }
