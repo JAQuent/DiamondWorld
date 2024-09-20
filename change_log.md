@@ -1,0 +1,63 @@
+## Diamond World
+- Changes for version 0.1
+    - Had to change Physics > Default Max Depenetration Velocity to 20
+- Changes for version 0.2
+    - Score count fixed.
+    - Ray tracker debugging disabled
+    - Movement only after session started.
+    - Respawn timer between 10 and 30 seconds
+- **Elevated to Version 1.0 of development**
+    - Made ambient colour lighter and removed fog.
+    - Keys: 1, 2, 3
+- Version 1.1.0
+    - HTTP post
+    - Mac/Window support
+    - Skybox changed and moon added
+    - Make json downloadable (needs to be activated and hosted on Chinese internet).
+    - Save screen resolution in screen tracker script.
+    - Gap frame rate to what ever is specified in .json
+    - Possible but not done yet: Add state indicator to DiamondTask so that people know what they are currently doing. Comment: This should be obsolete given how the walls look like now.
+    - Save data & time.
+    - Save data through two ways to make sure that no data is lost.
+    - Change welcome screen rotation. (Not sure what I mean by this anymore).
+    - For behavioural version use HJKL keys.
+    - Opened with Unity 2021.3.1f1c1
+- Version 1.2.0
+    - Also added an end screen at the end
+- Version 1.3.0
+    - Add which platform is used.
+    - Made the canvas scale with the screen.
+    - Fixed score and countdown text
+    - Add HTTPost configuration
+    - Make sure that the TheEnd() method does not produce error but closes sessions and trials correctly.
+    - Add the possibility to change the key assignments.
+    - Removing fixation, score and time during end screen
+- Version 1.4.0
+    - Fixed UI start up issue.
+- Version 1.4.1
+    - Fix that FPS is not actually set to targetFrameRate
+- Version 1.5.0
+    - Included Self rightening script
+- Version 1.6.0
+    - Issue: Some participants still didn’t get that they should not collect the green objects. To make that clear in the game, I made the screen darker for short time, show a warning icon and changed the sounds that remind on more of an error when a green shape is collected. The reward sound is also changed to something more canonical.
+    - Lowered graphic settings.
+    - Changed the icosahedron colour to white to avoid the confusion that green brings.
+    - Make instructions at the beginning.
+- Version 2.0.0
+    - Fixed UI for now.
+    - Added GPU instancing, removed point lights, made all objects in environment static, changed from real-time to backed lighting, enabled HDR in render settings to enable bloom (https://foxxthom.medium.com/post-processing-not-showing-in-webgl-builds-9290e581f5d7), added occlusion culling. Now on lower end test laptop 33 FPS on battery and 57 running on normal power.
+- Version 2.1.0
+    - Added FPS counter as a feature.
+    - Print version to log
+    - Change canvas scaler to screen match mode to shrink.
+    - Made welcome screen configurable.
+- Version 2.2.0
+    - Change quality settings to medium but with 4x Anti-Aliasing and HDR support (for bloom).
+    - Actually bake the reflection probe
+- Version 2.3.0
+    - Added version to welcome screen
+    - Added the possibility to change the movement from an actions have to be stopped and an actions don’t have to be stopped for moving around. In .json it is changed by *actionNeedToBeEnded*.
+- Version 2.3.1
+    - Fixed typo in .exe
+- Version 2.3.2
+    - Fixed bug: that when *actionNeedToBeEnded* is enabled that the Boolean whether the participant is moving or not was not working.
