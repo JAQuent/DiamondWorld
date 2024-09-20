@@ -5,31 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Welcome Screen.unity
-    guid: 67bf0fae073267347b03ebddf0bd55ac
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Welcome_Screen.unity
+    guid: f14ec8fa7ec0d74478b3b1455b28013b
+  - enabled: 1
     path: Assets/Scenes/DiamondWorld.unity
-    guid: b0b451490da89ef4fa79c1ef033f84c1
-  - enabled: 1
-    path: Assets/Powerup FX/Demo/Scenes/Powerup01.unity
-    guid: af4cf9d659b5d1c40875ded911671673
-  - enabled: 1
-    path: Assets/Powerup FX/Demo/Scenes/Powerup02.unity
-    guid: 3efd57236151d1342b600afd8ce60f10
-  - enabled: 1
-    path: Assets/Powerup FX/Demo/Scenes/Powerup03.unity
-    guid: b3cf860315e7cbf4c8ad6294813d99bb
-  - enabled: 1
-    path: Assets/Powerup FX/Demo/Scenes/Powerup04.unity
-    guid: 8fd013c5bb374974ebb67c983bb3983d
-  - enabled: 1
-    path: Assets/Powerup FX/Demo/Scenes/Powerup05.unity
-    guid: c582e78ba5033334f8c56971b9ae1090
-  - enabled: 1
-    path: Assets/Powerup FX/Demo/Scenes/Powerup06.unity
-    guid: 63f6ee486c5cd48479d530725691916c
-  - enabled: 1
-    path: Assets/Powerup FX/Demo/Scenes/Powerup07.unity
-    guid: 034334a223daa1e40acf21f6fe49316e
+    guid: 091e0e0581cfb934ca221b059f369d18
   m_configObjects: {}

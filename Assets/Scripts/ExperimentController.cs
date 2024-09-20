@@ -84,7 +84,7 @@ public class ExperimentController : MonoBehaviour{
 
 
     // Method to be run at the beginning of trial to get settings and spawn objects.
-    void spawnOnTrialBegin(){
+    public void spawnOnTrialBegin(){
         // Get information from session after it started
         // Parse general information from .json
         ThreeButtonMovement.forwardSpeed = session.settings.GetFloat("forwardSpeed");
