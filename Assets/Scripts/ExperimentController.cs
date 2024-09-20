@@ -195,7 +195,7 @@ public class ExperimentController : MonoBehaviour{
         firstChildOfSpawnedObj.name = baseName + index;
 
         // Set index value of objectScript
-        firstChildOfSpawnedObj.gameObject.GetComponent<objectScript>().index = index;
+        //firstChildOfSpawnedObj.gameObject.GetComponent<objectScript>().index = index;
 
         return spawnedObj;
     }
