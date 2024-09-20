@@ -61,3 +61,5 @@
     - Fixed typo in .exe
 - Version 2.3.2
     - Fixed bug: that when *actionNeedToBeEnded* is enabled that the Boolean whether the participant is moving or not was not working.
+- Version 3.0.0
+    - Fixed introduced bug that seession was not added to countdown. 
