@@ -25,12 +25,12 @@ public class scoreCounter : MonoBehaviour{
     }
 
     // Set draw to be added as event  in UXF rig
-    void setDrawScoreTrue(){
+    public void setDrawScoreTrue(){
     	drawScore = true;
     	score = 0;
     }
 
-    void setDrawScoreFalse(){
+    public void setDrawScoreFalse(){
     	drawScore = false;
     }
 }

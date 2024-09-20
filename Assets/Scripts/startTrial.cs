@@ -20,7 +20,7 @@ public class startTrial : MonoBehaviour{
     }
 
     /// OnTriggerExit is called when the Collider 'other' has stopped touching the trigger.
-    void changeTrialEnded(){
+    public void changeTrialEnded(){
         trialEnded = true;
     }
 }

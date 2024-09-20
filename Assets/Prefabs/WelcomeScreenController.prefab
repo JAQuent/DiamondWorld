@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2520137794667620812
+--- !u!1 &3398362079234002952
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2520137794667620814}
-  - component: {fileID: 1640485830001498540}
+  - component: {fileID: 3398362079234002954}
+  - component: {fileID: 3398362079234002955}
   m_Layer: 0
-  m_Name: rayTracker
+  m_Name: WelcomeScreenController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2520137794667620814
+--- !u!4 &3398362079234002954
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2520137794667620812}
+  m_GameObject: {fileID: 3398362079234002952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8902241, y: 1.1683273, z: 8.9627285}
+  m_LocalPosition: {x: 683, y: 78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1640485830001498540
+--- !u!114 &3398362079234002955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2520137794667620812}
+  m_GameObject: {fileID: 3398362079234002952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb8cc206f67486e4c93f5e152583b7fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d0e81194ccd4d340af506c31207c490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: raytracker
-  updateType: 2
-  cam: {fileID: 0}
-  session: {fileID: 0}
-  HowToUse: "Please provide coordinates in form of lists named ray_x & ray_y in your
-    .json file. For example \n\"ray_x\": [0.5],\n\"ray_y\": [0.5]\nif you want to
-    have one ray in the middle of the screen. Multiple rays can be provide with this
-    method."
-  debugMode: 0
-  distance: Infinity
-  useLayerMask: 1
-  layerMaskNames:
-  - Objects
+  fileName: welcome.json
+  label1Text: {fileID: 0}
+  label2Text: {fileID: 0}
+  instructions: {fileID: 0}
+  button: {fileID: 0}
+  title: {fileID: 0}
+  version: {fileID: 0}

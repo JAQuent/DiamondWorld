@@ -75,3 +75,6 @@ crashlytics-build.properties
 # Custom ignore tag
 ignore*
 exp_data
+
+# Ignore paid assets
+Assets/Powerup FX*

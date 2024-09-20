@@ -48,7 +48,7 @@ public class countdown : MonoBehaviour{
         session.EndCurrentTrial();        
     }
 
-    void playTimeOutSound(){
+    public void playTimeOutSound(){
     	if(timeOut){
     		FPC = GameObject.Find("First Person Controller");
     		// we will play a clip at position above origin, 100% volume

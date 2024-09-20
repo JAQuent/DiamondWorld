@@ -11,7 +11,7 @@ public class objectScript : MonoBehaviour{
     public static int punishmentValue = 2;
 
 	// Public vars
-	public ParticleSystem pickParticle;
+	//public ParticleSystem pickParticle;
 	public AudioClip rewardSound; 
 	public AudioClip punishmentSound; 
 	public bool rewardObject = false;
@@ -26,7 +26,7 @@ public class objectScript : MonoBehaviour{
 
     void Start(){
         // Get renderer of the child that contains the renderer
-        rend = gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>();
+        //rend = gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>();
 
         //Fetch the GameObject's Collider (make sure it has a Collider component)
         m_Collider = GetComponent<Collider>();
@@ -50,16 +50,16 @@ public class objectScript : MonoBehaviour{
                     // Change score
                     scoreCounter.score  = scoreCounter.score - punishmentValue;
                     Debug.Log("Current score: " + scoreCounter.score);
-
+/*
                     // PLay particle
-                    pickParticle.Play();
+                    pickParticle.Play();*/
 
                     // Play sound
                     AudioSource.PlayClipAtPoint(punishmentSound, gameObject.transform.position, 1.0f);
 
                     // Set inactive
                     activated = false;
-                    rend.enabled = false;
+                    //end.enabled = false;
                     m_Collider.enabled = false;
 
                     // Set reacivationcountdown
@@ -72,16 +72,16 @@ public class objectScript : MonoBehaviour{
                     // Change score
                     scoreCounter.score  = scoreCounter.score + rewardValue;
                     Debug.Log("Current score: " + scoreCounter.score);
-
+/*
                     // PLay particle
-                    pickParticle.Play();
+                    pickParticle.Play();*/
 
                     // Play sound
                     AudioSource.PlayClipAtPoint(rewardSound, gameObject.transform.position, 1.0f);
 
                     // Set inactive
                     activated = false;
-                    rend.enabled = false;
+                    //rend.enabled = false;
                     m_Collider.enabled = false;
 
                     // Set reacivationcountdown
@@ -99,7 +99,7 @@ public class objectScript : MonoBehaviour{
 
         // Reactivate
         activated = true;
-        rend.enabled = true;
+        //rend.enabled = true;
         m_Collider.enabled = true;
 
         // Log entry
