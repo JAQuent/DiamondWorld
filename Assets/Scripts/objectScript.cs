@@ -19,20 +19,18 @@ public class objectScript : MonoBehaviour{
 
     // Private vars
     private List<float> diamondTimings;
-    private List<float> icosahedronTimings;
+    private List<float> trapTimings;
     private bool activated = true;
-    private Renderer rend;
+    private ParticleSystem particle;
     private Collider m_Collider;
 
     void Start(){
-        // Get renderer of the child that contains the renderer
-        //rend = gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>();
+        // Get particle system of the parent object
+        particle = gameObject.transform.parent.gameObject.GetComponent<ParticleSystem>();
 
         //Fetch the GameObject's Collider (make sure it has a Collider component)
         m_Collider = GetComponent<Collider>();
     }
-
-
 
     /// OnTriggerEnter is called  if FPC enters it check whether it's a death cube
     void OnTriggerEnter(Collider other){
@@ -50,9 +48,6 @@ public class objectScript : MonoBehaviour{
                     // Change score
                     scoreCounter.score  = scoreCounter.score - punishmentValue;
                     Debug.Log("Current score: " + scoreCounter.score);
-/*
-                    // PLay particle
-                    pickParticle.Play();*/
 
                     // Play sound
                     AudioSource.PlayClipAtPoint(punishmentSound, gameObject.transform.position, 1.0f);
@@ -63,8 +58,8 @@ public class objectScript : MonoBehaviour{
                     m_Collider.enabled = false;
 
                     // Set reacivationcountdown
-                    icosahedronTimings = ExperimentController.icosahedronTimings;
-                    StartCoroutine(reactivationCountdown(icosahedronTimings[index]));
+                    trapTimings = ExperimentController.trapTimings;
+                    StartCoroutine(reactivationCountdown(trapTimings[index]));
                 } else {
                     // Log entry
                     Debug.Log("Reward: Diamond picked up " + gameObject.transform.position);
@@ -72,9 +67,6 @@ public class objectScript : MonoBehaviour{
                     // Change score
                     scoreCounter.score  = scoreCounter.score + rewardValue;
                     Debug.Log("Current score: " + scoreCounter.score);
-/*
-                    // PLay particle
-                    pickParticle.Play();*/
 
                     // Play sound
                     AudioSource.PlayClipAtPoint(rewardSound, gameObject.transform.position, 1.0f);
@@ -87,7 +79,10 @@ public class objectScript : MonoBehaviour{
                     // Set reacivationcountdown
                     diamondTimings = ExperimentController.diamondTimings;
                     StartCoroutine(reactivationCountdown(diamondTimings[index]));
-                } 
+                }
+
+                // Stop paricle system
+                particle.Stop();
             }
         }
     }
@@ -99,8 +94,8 @@ public class objectScript : MonoBehaviour{
 
         // Reactivate
         activated = true;
-        //rend.enabled = true;
         m_Collider.enabled = true;
+        particle.Play();
 
         // Log entry
         Debug.Log("Object reactivated " + gameObject.transform.position);

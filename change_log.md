@@ -63,3 +63,4 @@
     - Fixed bug: that when *actionNeedToBeEnded* is enabled that the Boolean whether the participant is moving or not was not working.
 - Version 3.0.0
     - Fixed introduced bug that seession was not added to countdown. 
+    - Fixed further bugs that were introduced by changing the items: 1. fixed dimensions of the UXF UI. 2. fixed the animation of the trial starter. 

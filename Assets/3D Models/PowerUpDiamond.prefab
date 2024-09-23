@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5889128814503291725}
   - component: {fileID: 7151135150355371712}
   m_Layer: 6
-  m_Name: functionalDiamond
+  m_Name: functionalPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1606f45e3be89449b19eb9d58656c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickParticle: {fileID: 0}
   rewardSound: {fileID: 8300000, guid: 8322c5dd149aa1649a397606e675d9d5, type: 3}
   punishmentSound: {fileID: 8300000, guid: f72984bc357256741ada014feeb89344, type: 3}
   rewardObject: 1

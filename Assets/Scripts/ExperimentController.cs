@@ -7,18 +7,18 @@ using UnityEngine.UI;
 public class ExperimentController : MonoBehaviour{
     // Static variables
     public static List<float> diamondTimings;
-    public static List<float> icosahedronTimings;
+    public static List<float> trapTimings;
     public static bool warningShow = false;
 
     // HTTPpost script
-    public UXF.HTTPPost HTTPPostScript;
+    public HTTPPost HTTPPostScript;
 
 	// Public vars
 	public GameObject diamond;
-    public GameObject icosahedron;
+    public GameObject trap;
 	public float yOfCube = 2.08f;
 	public string objName1 = "diamond";
-    public string objName2 = "icosahedron";
+    public string objName2 = "trap";
     public Session session;
     public GameObject endScreen;
     public GameObject fixationMarker;
@@ -30,12 +30,12 @@ public class ExperimentController : MonoBehaviour{
     // Private vars
     private List<float> diamond_x;
     private List<float> diamond_z;
-    private List<float> icosahedron_x;
-    private List<float> icosahedron_z;
+    private List<float> trap_x;
+    private List<float> trap_z;
     private int numberOfDiamonds;
-    private int numberOfIcosahedron;
+    private int numberOfTrap;
     private List<GameObject> diamonds = new List<GameObject>();
-    private List<GameObject> icosahedrons = new List<GameObject>();
+    private List<GameObject> traps = new List<GameObject>();
     private bool startEndCountDown; // If true it starts the end countdown
     private float endCountDown = 60; // End countdown if zero, application closes. 
     private Text endScreenText; // Text component of the end screen
@@ -97,10 +97,10 @@ public class ExperimentController : MonoBehaviour{
         diamond_z = session.settings.GetFloatList("diamond_z");
         diamondTimings = session.settings.GetFloatList("diamondTimings");
         numberOfDiamonds = diamond_x.Count;
-        icosahedron_x = session.settings.GetFloatList("icosahedron_x");
-        icosahedron_z = session.settings.GetFloatList("icosahedron_z");
-        icosahedronTimings = session.settings.GetFloatList("icosahedronTimings");
-        numberOfIcosahedron = icosahedron_x.Count;
+        trap_x = session.settings.GetFloatList("trap_x");
+        trap_z = session.settings.GetFloatList("trap_z");
+        trapTimings = session.settings.GetFloatList("trapTimings");
+        numberOfTrap = trap_x.Count;
 
         // Spawn objects
         // Diamonds
@@ -108,9 +108,9 @@ public class ExperimentController : MonoBehaviour{
     		diamonds.Add(Spawn(diamond, i, objName1, diamond_x[i], diamond_z[i]));
     	}
 
-        // Icosahedron
-        for(int i = 0; i < numberOfIcosahedron; i++){
-            icosahedrons.Add(Spawn(icosahedron, i, objName2, icosahedron_x[i], icosahedron_z[i]));
+        // Trap
+        for(int i = 0; i < numberOfTrap; i++){
+            traps.Add(Spawn(trap, i, objName2, trap_x[i], trap_z[i]));
         }
     }
 
@@ -122,10 +122,10 @@ public class ExperimentController : MonoBehaviour{
     		Destroy(diamonds[i]);
     	}
 
-        // Destroy icosahedrons
-        for(int i = 0; i < numberOfIcosahedron; i++){
+        // Destroy traps
+        for(int i = 0; i < numberOfTrap; i++){
             string obj2delete = objName2 + i;
-            Destroy(icosahedrons[i]);
+            Destroy(traps[i]);
         }
     }
 
@@ -191,11 +191,11 @@ public class ExperimentController : MonoBehaviour{
 		spawnedObj.transform.position = new Vector3(x, yOfCube, z);
 
         // Also unique name the child because the ray tracker won't be useful otherwise. 
-        GameObject  firstChildOfSpawnedObj = spawnedObj.transform.GetChild(0).gameObject;
-        firstChildOfSpawnedObj.name = baseName + index;
+        GameObject  childOfSpawnedObj = spawnedObj.transform.GetChild(3).gameObject;
+        childOfSpawnedObj.name = baseName + index;
 
         // Set index value of objectScript
-        //firstChildOfSpawnedObj.gameObject.GetComponent<objectScript>().index = index;
+        childOfSpawnedObj.gameObject.GetComponent<objectScript>().index = index;
 
         return spawnedObj;
     }
