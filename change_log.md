@@ -71,3 +71,4 @@
     - Fixed FPS issue that average is not caluclated correctly in WebGL.
     - Removed reflection probes, scene lighting data. Also move settings filers to tracked folder.
     - Baked lights even if benefit is not entirely clear. 
+    - Bakad again but didn't remove the reflection probes as it seems important for the objects rendering correctly. 
