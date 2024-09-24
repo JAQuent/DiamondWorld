@@ -50,6 +50,11 @@ public class ExperimentController : MonoBehaviour{
 
 		// Deactivate FPS by default
         activateFPS_Counter(false);
+
+#if UNITY_WEBGL
+        // If WebGL also make full screen
+        Screen.fullScreen = true;
+#endif
     }
 
     // Update method to quit application

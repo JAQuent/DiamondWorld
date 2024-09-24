@@ -64,4 +64,5 @@
 - Version 3.0.0
     - Fixed introduced bug that seession was not added to countdown. 
     - Fixed further bugs that were introduced by changing the items: 1. fixed dimensions of the UXF UI, 2. fixed the animation of the trial starter (removing unsupported VFX), 3. aligned the objects in the welcome screen, 4. fixed the experiment controller script and 5. remove the word icosahedron. 
-    - Add study dictionary method, change UXF UI for WebGL and change UXF UI controll script
+    - Add study dictionary method, change UXF UI for WebGL and change UXF UI controll script.
+    - Adding that Unity switches to full screen at the beginning of the WebGL experiment. 
