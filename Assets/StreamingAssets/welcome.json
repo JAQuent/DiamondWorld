@@ -1,7 +1,7 @@
 {
-    "label1": "避开\nAvoid",
-    "label2": "收集\nCollect",
+    "label1": "Avoid",
+    "label2": "Collect",
     "title": "Diamond World",
-    "buttonLabel": "开始 - Start",
-    "instructionText": "你需要收集尽可能多的钻石。每个钻石将使你 获得1点积分。\n\n<b>注意！</b>请不要收集蓝色物体，这样做每次将使你失去2点积分。"
+    "buttonLabel": "Start",
+    "instructionText": "Add instructions"
 }

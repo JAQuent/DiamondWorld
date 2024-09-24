@@ -1,0 +1,10 @@
+{
+    "studies":
+    [
+        {
+            "studyID": "DW1",
+            "UXF_settings_url": "http://gist.githubusercontent.com/JAQuent/7f3b29fa1853d7553576dc3f73a786da/raw/345eee9e4e1731a48a1659698babd907a2bccab7/DiamondWorld_standard.json",
+            "startupText": "http://gist.githubusercontent.com/JAQuent/575b771e0f0c65269c8035a501821af5/raw/a48f17810134364554d764008452f01784a84e3b/startupText.json"
+        }
+    ]
+}

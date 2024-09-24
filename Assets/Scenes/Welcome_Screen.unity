@@ -145,17 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &846923249 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3267044063757921629, guid: c21be947630fbb241af48c4c98333830, type: 3}
-  m_PrefabInstance: {fileID: 1004637630}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &864421825 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3267044063487419083, guid: c21be947630fbb241af48c4c98333830, type: 3}
@@ -231,6 +220,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2580067918583675008, guid: c21be947630fbb241af48c4c98333830, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580067918583675008, guid: c21be947630fbb241af48c4c98333830, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3267044063080712595, guid: c21be947630fbb241af48c4c98333830, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -329,14 +326,39 @@ PrefabInstance:
       objectReference: {fileID: 1562202825}
     - target: {fileID: 3267044064210757484, guid: c21be947630fbb241af48c4c98333830, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: ButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 3267044064210757484, guid: c21be947630fbb241af48c4c98333830, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: WelcomeScript, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3305111236281682075, guid: c21be947630fbb241af48c4c98333830, type: 3}
+      propertyPath: m_Name
+      value: InputField
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305111236281682075, guid: c21be947630fbb241af48c4c98333830, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830093004403103669, guid: c21be947630fbb241af48c4c98333830, type: 3}
+      propertyPath: m_Text
+      value: Enter Study ID...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830093004403103669, guid: c21be947630fbb241af48c4c98333830, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830093004403103669, guid: c21be947630fbb241af48c4c98333830, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c21be947630fbb241af48c4c98333830, type: 3}
+--- !u!1 &1004637631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3305111236281682075, guid: c21be947630fbb241af48c4c98333830, type: 3}
+  m_PrefabInstance: {fileID: 1004637630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1348213634
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +437,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0e81194ccd4d340af506c31207c490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1619571503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3267044064210757482, guid: c21be947630fbb241af48c4c98333830, type: 3}
+  m_PrefabInstance: {fileID: 1004637630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1689788922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -477,11 +504,15 @@ PrefabInstance:
     - target: {fileID: 3398362079234002955, guid: 12d0774f91b269842aeb6caca6330537, type: 3}
       propertyPath: button
       value: 
-      objectReference: {fileID: 846923249}
+      objectReference: {fileID: 1619571503}
     - target: {fileID: 3398362079234002955, guid: 12d0774f91b269842aeb6caca6330537, type: 3}
       propertyPath: version
       value: 
       objectReference: {fileID: 864421825}
+    - target: {fileID: 3398362079234002955, guid: 12d0774f91b269842aeb6caca6330537, type: 3}
+      propertyPath: inputField
+      value: 
+      objectReference: {fileID: 1004637631}
     - target: {fileID: 3398362079234002955, guid: 12d0774f91b269842aeb6caca6330537, type: 3}
       propertyPath: label1Text
       value: 
