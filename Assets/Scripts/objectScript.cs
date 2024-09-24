@@ -39,7 +39,7 @@ public class objectScript : MonoBehaviour{
             if (other.name == "First Person Controller"){
                 if(!rewardObject){
                     // Log entry
-                    Debug.Log("Punishment: Icosahedron picked up " + gameObject.transform.position);
+                    Debug.Log("Punishment: Trap" + index + " picked up " + gameObject.transform.position);
 
                     // Punishment vignette & warning
                     VignietteController.vignetteEffectStart = true;
@@ -62,7 +62,7 @@ public class objectScript : MonoBehaviour{
                     StartCoroutine(reactivationCountdown(trapTimings[index]));
                 } else {
                     // Log entry
-                    Debug.Log("Reward: Diamond picked up " + gameObject.transform.position);
+                    Debug.Log("Reward: Diamond" + index + " picked up " + gameObject.transform.position);
 
                     // Change score
                     scoreCounter.score  = scoreCounter.score + rewardValue;

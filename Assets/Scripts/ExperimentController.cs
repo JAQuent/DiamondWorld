@@ -121,7 +121,7 @@ public class ExperimentController : MonoBehaviour{
 
 
     // Method to be run at the end of the trial to destroy all objects
-    public void destroyAllCubesAtTrialEnd(){
+    public void destroyAllObjectsAtTrialEnd(){
         // Destroy diamonds
     	for(int i = 0; i < numberOfDiamonds; i++){
     		Destroy(diamonds[i]);

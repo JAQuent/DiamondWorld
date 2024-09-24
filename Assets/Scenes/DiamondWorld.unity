@@ -562,7 +562,7 @@ PrefabInstance:
       objectReference: {fileID: 2109297974}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onTrialEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: destroyAllCubesAtTrialEnd
+      value: destroyAllObjectsAtTrialEnd
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onTrialEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1208,6 +1208,10 @@ PrefabInstance:
       propertyPath: session
       value: 
       objectReference: {fileID: 233031684}
+    - target: {fileID: 1640485830001498540, guid: d6da45085e23a4f40b739a1012d6ea34, type: 3}
+      propertyPath: distance
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 2520137794667620812, guid: d6da45085e23a4f40b739a1012d6ea34, type: 3}
       propertyPath: m_Name
       value: rayTracker
