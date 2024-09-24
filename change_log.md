@@ -69,3 +69,4 @@
         - Added that Unity switches to full screen at the beginning of the WebGL experiment. 
         - Fixed the input field font size.
     - Fixed FPS issue that average is not caluclated correctly in WebGL.
+    - Removed reflection probes, scene lighting data. Also move settings filers to tracked folder.
