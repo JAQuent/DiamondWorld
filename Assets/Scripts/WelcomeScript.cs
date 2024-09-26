@@ -84,7 +84,7 @@ public class WelcomeScript : MonoBehaviour{
         label2Text.text = UIData.label2;
         instructions.text = UIData.instructionText;
         button.SetActive(true);
-        button.GetComponent<Text>().text = UIData.buttonLabel;
+        button.GetComponentInChildren<Text>().text = UIData.buttonLabel;
         title.text = UIData.title;
     }
 

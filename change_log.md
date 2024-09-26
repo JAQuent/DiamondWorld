@@ -78,3 +78,4 @@
     - Added mode 'standard' & 'fMRI'.
     - Changed that last trials end the session.
     - Added index to log when object is reactivated.
+    - Fixed bug that button label was not changed in Windows.
