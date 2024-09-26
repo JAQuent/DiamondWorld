@@ -98,7 +98,11 @@ public class objectScript : MonoBehaviour{
         particle.Play();
 
         // Log entry
-        Debug.Log("Object reactivated " + gameObject.transform.position);
+        if (!rewardObject){
+            Debug.Log("Trap" + index + " reactivated " + gameObject.transform.position);
+        } else{
+            Debug.Log("Diamond" + index + " reactivated " + gameObject.transform.position);
+        }
     }
 
 }

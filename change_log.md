@@ -77,3 +77,4 @@
     - Create new basic layout with minimum distance betwee objects.
     - Added mode 'standard' & 'fMRI'.
     - Changed that last trials end the session.
+    - Added index to log when object is reactivated.
