@@ -9,6 +9,8 @@ public class ExperimentController : MonoBehaviour{
     public static List<float> diamondTimings;
     public static List<float> trapTimings;
     public static bool warningShow = false;
+    public static string mode = "standard"; // In "standard" mode the trial starts with the participant going over the trial marker, while in "fMRI"
+    // the trial starts with pressing S.
 
     // HTTPpost script
     public HTTPPost HTTPPostScript;
@@ -26,6 +28,7 @@ public class ExperimentController : MonoBehaviour{
     public GameObject scoreText;
     public GameObject warningIcon;
     public float iconTime;
+    public GameObject player;
 
     // Private vars
     private List<float> diamond_x;
@@ -43,6 +46,7 @@ public class ExperimentController : MonoBehaviour{
     private bool useHTTPPost = false; // Is HTTPPost to be used? If so it needs input from the .json
     private GameObject FPS_Counter; // Game object for FPS counter
     private bool foundFPS_Counter = false; // Has the FPS counter been found?
+    private bool trialEnded = true; // Is the trial ended?
 
     void Start(){
     	// Start with no movement
@@ -84,6 +88,19 @@ public class ExperimentController : MonoBehaviour{
             Debug.Log("Warning showed!");
             StartCoroutine(warning());
             warningShow = false;
+        }
+
+        // Check if the S is pressed in fMRI mode
+        if(mode == "fMRI"){
+            if(Input.GetKeyDown(KeyCode.S) & trialEnded){
+                // Teleport player to the start
+                player.transform.position = new Vector3(0, 1.0f, 0);
+
+                // Start the trial
+                trialEnded = false;
+                session.BeginNextTrial();
+                Debug.Log("Start of the trial.");
+            }
         }
     }
 
@@ -248,7 +265,15 @@ public class ExperimentController : MonoBehaviour{
         string tempKey = "actionNeedToBeEnded";
         if(containsThisKeyInSessionSettings(tempKey)){
             ThreeButtonMovement.actionNeedToBeEnded = session.settings.GetBool(tempKey); 
-        } 
+        }
+
+        tempKey = "mode";
+        if (containsThisKeyInSessionSettings(tempKey)){
+            mode = session.settings.GetString(tempKey);
+            if(mode != "fMRI" & mode != "standard"){
+                Debug.Log("Mode not recognised. Please use 'fMRI' or 'standard'.");
+            }
+        }
     }
 
 
