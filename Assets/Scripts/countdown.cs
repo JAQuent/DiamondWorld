@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UXF;
+using static UnityEngine.ParticleSystem;
 
 public class countdown : MonoBehaviour{
 	// Public vars
@@ -16,6 +17,7 @@ public class countdown : MonoBehaviour{
     private bool drawText = false;
     private bool timeOut = false;
     private GameObject FPC;
+    private Trial trial;
     
     public void BeginCountdown(){
         StartCoroutine(Countdown());
@@ -37,7 +39,7 @@ public class countdown : MonoBehaviour{
     }
 
     IEnumerator Countdown(){
-        timeoutPeriod = session.settings.GetFloat("timeoutPeriod");
+        timeoutPeriod = 10;// session.settings.GetFloat("timeoutPeriod");
         yield return new WaitForSeconds(timeoutPeriod);
 
         // Set timeOut to true so it can be played at the end of trial
@@ -45,7 +47,9 @@ public class countdown : MonoBehaviour{
 
         // if we got to this stage, that means we moved too slow
         // session.CurrentTrial.result["outcome"] = "tooslow";
-        session.EndCurrentTrial();        
+        session.EndCurrentTrial();
+        trial = session.CurrentTrial;
+        session.EndIfLastTrial(trial);
     }
 
     public void playTimeOutSound(){

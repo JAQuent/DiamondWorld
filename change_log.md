@@ -76,3 +76,4 @@
     - Number of small changes: 1. Renamed destroyAllCubesAtTrialEnd function, 2. Update file logo, 3. add object index to log. 
     - Create new basic layout with minimum distance betwee objects.
     - Added mode 'standard' & 'fMRI'.
+    - Changed that last trials end the session.
