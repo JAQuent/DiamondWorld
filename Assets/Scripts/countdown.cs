@@ -39,7 +39,7 @@ public class countdown : MonoBehaviour{
     }
 
     IEnumerator Countdown(){
-        timeoutPeriod = 10;// session.settings.GetFloat("timeoutPeriod");
+        timeoutPeriod = session.settings.GetFloat("timeoutPeriod");
         yield return new WaitForSeconds(timeoutPeriod);
 
         // Set timeOut to true so it can be played at the end of trial

@@ -3,5 +3,5 @@
     "label2": "Collect",
     "title": "Diamond World",
     "buttonLabel": "Start",
-    "instructionText": "Add instructions"
+    "instructionText": "In this task, you use the A, W & D keys to move around in the world in order to collect diamonds (+1), while avoiding the traps (-2)."
 }

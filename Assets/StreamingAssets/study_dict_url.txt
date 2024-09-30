@@ -1,1 +1,1 @@
-http://gist.githubusercontent.com/JAQuent/4fac9146f53888ec52adaff516a51b2c/raw/b7dc09e68fda9f70fa33ac450f050294b3c47b77/study_dict.json
+https://s3.eu-west-2.amazonaws.com/dw.task.unity/config_files/study_dict.json
