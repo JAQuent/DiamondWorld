@@ -80,3 +80,5 @@
     - Added index to log when object is reactivated.
     - Fixed bug that button label was not changed in Windows.
     - Fixed that countdown hardcoding was not switched back.
+- Version 3.0.1
+    - Fix bug that startupText is not loaded in Windows.

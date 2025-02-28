@@ -77,13 +77,15 @@ public class UXF_UI_controllScript : MonoBehaviour{
         // Get path
         string path2file = Path.GetFullPath(Path.Combine(Application.streamingAssetsPath, fileNameForStartUpText));
 
+        Debug.Log(path2file);
+
         // Get JSON input
         var sr = new StreamReader(path2file);
         string fileContents = sr.ReadToEnd();
         sr.Close();
 
         // Get the Startup Text from the JSON file
-        GetDataFromJSON(fileNameForStartUpText);
+        GetDataFromJSON(fileContents);
     
         // Change the UI elements
         ChangeUI();
